@@ -1,6 +1,6 @@
 {
 	"name": "siyuan-kernel-primitives",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Deterministic, version-pinned building blocks for the SiYuan kernel API — block-tree walks, title guard, doc reads, and verified writes that prove they landed and refuse on kernel drift or stale content.",
 	"type": "module",
 	"main": "./index.ts",
