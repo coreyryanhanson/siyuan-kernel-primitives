@@ -1,0 +1,97 @@
+{
+	"name": "siyuan-kernel-primitives",
+	"version": "0.0.1",
+	"description": "Deterministic, version-pinned building blocks for the SiYuan kernel API — block-tree walks, title guard, doc reads, and verified writes that prove they landed and refuse on kernel drift or stale content.",
+	"type": "module",
+	"main": "./index.ts",
+	"types": "./index.ts",
+	"exports": {
+		".": {
+			"types": "./index.ts",
+			"default": "./index.ts"
+		},
+		"./write": {
+			"types": "./write.ts",
+			"default": "./write.ts"
+		},
+		"./testing": {
+			"types": "./testing.ts",
+			"default": "./testing.ts"
+		}
+	},
+	"files": [
+		"authLock.ts",
+		"batch.ts",
+		"byId.ts",
+		"body.ts",
+		"client.ts",
+		"containers.ts",
+		"convergence.ts",
+		"create.ts",
+		"delete.ts",
+		"deleteSection.ts",
+		"edit.ts",
+		"failure.ts",
+		"fresh.ts",
+		"heading.ts",
+		"index.ts",
+		"insert.ts",
+		"move.ts",
+		"moveSection.ts",
+		"moveSectionPlan.ts",
+		"notebooks.ts",
+		"outline.ts",
+		"placement.ts",
+		"receipt.ts",
+		"refs.ts",
+		"replace.ts",
+		"search.ts",
+		"sectionDeleteCore.ts",
+		"sql.ts",
+		"stmtKind.ts",
+		"testing.ts",
+		"titleGuard.ts",
+		"version.ts",
+		"walk.ts",
+		"write.ts"
+	],
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"prepublishOnly": "npm test && npx tsc --noEmit && node scripts/check-pack.mjs",
+		"release:patch": "node scripts/release.mjs patch",
+		"release:minor": "node scripts/release.mjs minor",
+		"release:major": "node scripts/release.mjs major",
+		"lint": "oxlint --deny-warnings",
+		"fmt": "oxfmt",
+		"fmt:check": "oxfmt --check",
+		"prepare": "husky"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"author": "Corey Ryan Hanson",
+	"license": "AGPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/coreyryanhanson/siyuan-kernel-primitives.git"
+	},
+	"dependencies": {
+		"siyuan-kernel-api": "0.6.0"
+	},
+	"devDependencies": {
+		"@types/node": "22.20.2",
+		"husky": "9.1.7",
+		"lint-staged": "17.5.1",
+		"oxfmt": "0.66.0",
+		"oxlint": "1.81.0",
+		"typescript": "^7.0.2",
+		"vitest": "^5.0.0"
+	},
+	"lint-staged": {
+		"*.ts": [
+			"oxfmt",
+			"oxlint --fix --deny-warnings"
+		]
+	}
+}
